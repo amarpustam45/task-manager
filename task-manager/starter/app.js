@@ -6,13 +6,10 @@ const connectDB = require('./db/connect');
 require('dotenv').config();
 
 //middleware
+app.use(express.static('./public')); //serve static files
 app.use(express.json());
 
 //routes
-app.get('/', (req, res) => {
-  res.send('task manager app');
-});
-
 app.use('/api/v1/tasks', tasks);
 
 // app.get('/api/v1/task', (req, res) => {});
